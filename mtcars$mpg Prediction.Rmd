@@ -3,8 +3,8 @@ title: "Exploring The 'mtcars' Data Set"
 author: "Kenneth I. D."
 date: "2/1/2020"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
   word_document: default
 ---
 
@@ -394,30 +394,35 @@ Fitting all four variables into a model (Model 1)
 ```{r, echo=FALSE}
 fit <- lm(mpg ~ hp+ wt + cyl + disp, data=train)
 summary(fit)
+plot(fit)
 ```
 
 Fitting the hp, wt and cyl variables into a model (Model 2)
 ```{r, echo=FALSE}
 fit_1 <- lm(mpg ~ hp+ wt + cyl, data=train)
 summary(fit_1)
+plot(fit_1)
 ```
 
 Fitting the hp, wt and disp variables into a third model (Model 3)
 ```{r, echo=FALSE}
 fit_2 <- lm(mpg ~ hp+ wt + disp, data=train)
 summary(fit_2)
+plot(fit_2)
 ```
 
 Fitting the hp, cyl and disp variables into a fourth model (Model 4)
 ```{r, echo=FALSE}
 fit_3 <- lm(mpg ~ hp + cyl + disp, data=train)
 summary(fit_3)
+plot(fit_3)
 ```
 
 Fitting the wt, cyl and disp variables into a fifth model (Model 5)
 ```{r, echo=FALSE}
 fit_4 <- lm(mpg ~ wt + cyl + disp, data=train)
 summary(fit_4)
+plot(fit_4)
 ```
 
  _Prediction Analysis using the multivariate regression analysis_
@@ -460,6 +465,7 @@ The cyl model
 ```{r, echo=FALSE}
 fit_cyl <- lm(mpg ~ cyl, data = train)
 summary(fit_cyl)
+plot(fit_cyl)
 predict(fit_cyl, data.frame(mtcars))
 df_fit_cyl <- as.data.frame(predict(fit_cyl, data.frame(mtcars)))
 ```
@@ -468,6 +474,7 @@ The disp model
 ```{r, echo=FALSE}
 fit_disp <- lm(mpg ~ disp, data = train)
 summary(fit_disp)
+plot(fit_disp)
 predict(fit_disp, data.frame(mtcars))
 df_fit_disp <- as.data.frame(predict(fit_disp, data.frame(mtcars)))
 ```
@@ -476,6 +483,7 @@ The hp model
 ```{r, echo=FALSE}
 fit_hp <- lm(mpg ~ hp, data = train)
 summary(fit_hp)
+plot(fit_hp)
 predict(fit_hp, data.frame(mtcars))
 df_fit_hp <- as.data.frame(predict(fit_hp, data.frame(mtcars)))
 ```
@@ -484,6 +492,7 @@ The wt model
 ```{r, echo=FALSE}
 fit_wt <- lm(mpg ~ wt, data = train)
 summary(fit_wt)
+plot(fit_wt)
 predict(fit_wt, data.frame(mtcars))
 df_fit_wt <- as.data.frame(predict(fit_wt, data.frame(mtcars)))
 ```
